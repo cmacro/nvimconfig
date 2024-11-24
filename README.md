@@ -11,7 +11,11 @@ Neovim Configuration
 ## Installation
 
 ```bash 
-git clone https://github.com/cmacro/nvimconfig.git ~/.config/nvim && nvim
+# remove 
+# rm -rf ~/.config/nvim && rm -rf ~/.local/state/nvim && rm -rf ~/.local/share/nvim
+
+
+git clone https://github.com/cmacro/nvimconfig.git ~/.config/nvim --depth 1 && nvim
 
 <cmd>MasonInstallAll
 
