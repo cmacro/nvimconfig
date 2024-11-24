@@ -22,16 +22,6 @@ return {
     },
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
-
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -48,6 +38,12 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
+      -- 加载 .vscode/launch.json
+      local vscode = require "dap.ext.vscode"
+      vscode.load_launchjs(nil, { go = { "go" }, python = { "python" } })
+      -- 参数说明:
+      -- `nil` 表示自动寻找工作目录中的 .vscode/launch.json 文件。
+      -- 第二个参数为映射类型，对应 launch.json 中的 `type` 字段。
     end,
   },
 
