@@ -2,8 +2,11 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
--- local util = require "lspconfig/util"
 
+lspconfig.servers = {
+  -- "lua_ls",
+  "gopls",
+}
 -- EXAMPLE
 local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -23,14 +26,7 @@ end
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 -- }
-
--- lspconfig.servers = {
---   -- "lua_ls",
---   "gopls",
---   -- "pyright",
--- }
-
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
@@ -51,21 +47,4 @@ lspconfig.gopls.setup {
       staticcheck = true,
     },
   },
-}
-
--- 配置 pyright
-lspconfig.pyright.setup {
-  on_attach = require("nvchad.configs.lspconfig").on_attach,
-  capabilities = require("nvchad.configs.lspconfig").capabilities,
-  settings = {
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-}
--- end,
--- }
+})

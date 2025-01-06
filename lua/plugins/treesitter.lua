@@ -1,28 +1,31 @@
 return {
-
-  -- TSInstallInfo 
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    ensure_installed = {
-      "bash",
-      "c",
-      -- "cpp",
-      "go",
-      "gomod",
-      "gosum",
-      "gotmpl",
-      "gowork",
-      "lua",
-      "luadoc",
-      "make",
-      "markdown",
-      "python",
-      "toml",
-      "vim",
-      "vimdoc",
-      "yaml",
-      "json",
-      "dockerfile",
-    },
-  },
+  build = ":TSUpdate",
+  config = function()
+    local configs = require "nvim-treesitter.configs"
+
+    configs.setup {
+      ensure_installed = {
+        "lua",
+        "javascript",
+        "typescript",
+        "python",
+        "go",
+        "rust",
+        "sql",
+        "make",
+        "dockerfile",
+        "yaml",
+        "toml",
+        "graphql",
+        "terraform",
+        "proto",
+        "html",
+      },
+      sync_install = false,
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+    }
+  end,
 }
