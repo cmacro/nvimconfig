@@ -243,6 +243,16 @@ TSInstall go
 },
 ```
 
+## Rust Install
+
+
+```sh
+:MasonInstall rust-analyzer
+:MasonInstall codelldb
+```
+
+
+
 ## 插件
 
 | name                                     | note      |     |

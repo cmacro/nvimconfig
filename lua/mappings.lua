@@ -10,8 +10,13 @@ map("i", "jk", "<ESC>")
 local builtin = require "telescope.builtin"
 map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 
-vim.keymap.set("n", "<Leader>dv", ":DapUiToggle<CR>", {desc = "Debugger view"})
-vim.keymap.set("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {desc = "Debugger toggle breakpoint"})
+vim.keymap.set("n", "<Leader>dv", ":DapUiToggle<CR>", { desc = "Debugger view" })
+vim.keymap.set(
+  "n",
+  "<Leader>db",
+  "<cmd>lua require'dap'.toggle_breakpoint()<CR>",
+  { desc = "Debugger toggle breakpoint" }
+)
 vim.keymap.set("n", "<Leader>dc", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
 
 -- Nvim dap
@@ -29,4 +34,11 @@ map(
 )
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
-map("n", "<leader>dtc", ":GoTestFunc<CR>", { desc = "Test current function" })
+-- map("n", "<leader>dt", ":GoTestFunc<CR>", { desc = "Test current function" })
+-- map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+map(
+  "n",
+  "<Leader>dt",
+  "<cmd>lua require'comm'.run_test()<CR>",
+  { noremap = true, silent = false, desc = "Test current function" }
+)

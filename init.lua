@@ -32,6 +32,8 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+require "comm"
+
 vim.schedule(function()
   require "mappings"
 end)
