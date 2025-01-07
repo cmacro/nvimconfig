@@ -6,6 +6,7 @@ local options = {
     go = { "golines" },
     yaml = { "prettier" },
     markdown = { "prettier" },
+    -- slint = { "slint-lsp" },
   },
 
   formatters = {

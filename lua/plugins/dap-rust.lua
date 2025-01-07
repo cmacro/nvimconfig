@@ -43,4 +43,11 @@ return {
       }
     end,
   },
+  -- slint ui
+  {
+    "slint-ui/vim-slint",
+    ft = "slint",
+    config = function()
+    end,
+  },
 }

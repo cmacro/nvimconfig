@@ -8,7 +8,7 @@ lspconfig.servers = {
   "gopls",
 }
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls"}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config

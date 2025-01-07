@@ -21,6 +21,7 @@ return {
         "terraform",
         "proto",
         "html",
+        "slint",
       },
       sync_install = false,
       auto_install = true,
