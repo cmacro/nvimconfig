@@ -6,9 +6,10 @@ local lspconfig = require "lspconfig"
 lspconfig.servers = {
   -- "lua_ls",
   "gopls",
+  "slint",
 }
 -- EXAMPLE
-local servers = { "html", "cssls"}
+local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -26,7 +27,7 @@ end
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 -- }
-lspconfig.gopls.setup({
+lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
@@ -47,4 +48,14 @@ lspconfig.gopls.setup({
       staticcheck = true,
     },
   },
-})
+}
+
+lspconfig.slint_lsp.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  single_file_support = true,
+  cmd = { "slint-lsp" },
+  filetypes = { "slint" },
+  settings = {},
+}
