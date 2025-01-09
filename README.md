@@ -227,6 +227,37 @@ local options = {
 go debug
 `https://github.com/go-delve/delve`
 
+安装dlv 
+
+```sh
+# Install the latest release:
+$ go install github.com/go-delve/delve/cmd/dlv@latest
+
+$ dlv version
+Delve Debugger
+Version: 1.24.0
+Build: $Id: 2d55e4d30150e3fc68e64357e21293d7920fc1f1 $
+
+```
+
+无法显示版本号问题处理：增加环境信息
+
+```sh
+# 查看环境变量
+go env GOBIN
+go env GOPATH
+ls $(go env GOPATH)/bin/dlv
+
+# ~/.bashrc 增加环境变量
+$ vim ~/.bashrc
+
+export GOBIN=$HOME/go/bin
+export PATH=$(go env GOPATH)/bin:$PATH
+
+$ source ~/.bashrc
+```
+
+
 
 TSInstall go
 
