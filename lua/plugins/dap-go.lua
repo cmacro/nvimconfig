@@ -1,43 +1,44 @@
 return {
   -- Go related config
-  {
-    "fatih/vim-go",
-    ft = "go",
-    build = ":GoUpdateBinaries",
-  },
+  -- {
+  --   "fatih/vim-go",
+  --   ft = "go",
+  --   build = ":GoUpdateBinaries",
+  -- },
   {
     "leoluz/nvim-dap-go",
     ft = { "go" },
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    config = function()
-      require("dap-go").setup()
-    end,
-  },
+    opts = function(_, opts)
+      local dap = require "dap"
 
-  -- {
-  --   "nvim-neotest/neotest-go",
-  --   requires = {
-  --     "nvim-neotest/neotest",
-  --   },
-  --   config = function()
-  --     -- get neotest namespace (api call creates or returns namespace)
-  --     local neotest_ns = vim.api.nvim_create_namespace "neotest"
-  --     vim.diagnostic.config({
-  --       virtual_text = {
-  --         format = function(diagnostic)
-  --           local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-  --           return message
-  --         end,
-  --       },
-  --     }, neotest_ns)
-  --     require("neotest").setup {
-  --       -- your neotest config here
-  --       adapters = {
-  --         require "neotest-go",
-  --       },
-  --     }
-  --   end,
-  -- },
-}
+      dap.adapters.delve = {
+        type = "server",
+        port = "${port}",
+        executable = {
+          command = "dlv",
+          args = { "dap", "-l", "127.0.0.1:${port}" },
+        },
+      }
+
+      -- Ensure we don't blow away existing debug configs
+      dap.configurations.go = dap.configurations.go or {}
+
+      -- Insert a NEW configuration
+      table.insert(dap.configurations.go, {
+        type = "delve",
+        name = "Debug (Display print outputs)",
+        request = "launch",
+        program = "${file}",
+        outputMode = "remote",
+      })
+
+      return opts
+    end,
+    -- config = function()
+    --   require("dap-go").setup()
+    -- end,
+  },
+  }
