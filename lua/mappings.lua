@@ -10,7 +10,7 @@ map("i", "jk", "<ESC>")
 local builtin = require "telescope.builtin"
 map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 
-vim.keymap.set("n", "<Leader>dv", ":DapUiToggle<CR>", { desc = "Debugger view" })
+vim.keymap.set("n", "<Leader>dv", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Debugger view" })
 vim.keymap.set(
   "n",
   "<Leader>db",
