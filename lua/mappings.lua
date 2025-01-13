@@ -42,3 +42,5 @@ map(
   "<cmd>lua require'comm'.run_test()<CR>",
   { noremap = true, silent = false, desc = "Test current function" }
 )
+
+map("n", "<Leader>dgt", "<cmd>lua require('dap-go').debug_test()<CR>", {desc="Debugger test function"})
