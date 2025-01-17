@@ -90,8 +90,17 @@ nvim tree 打开git_ignored 过滤文件和文件夹
 
 ##  riggrep && nerdfont
 
+Telescope 的 live_grep 依赖外部搜索工具，常用的是 ripgrep (rg)
+
+全局文件内容查找安装依赖
+
 ```sh
+# Ubuntu/Debian:
+sudo apt install ripgrep
+# MacOS
 brew install reggrep
+# windows
+choco install ripgrep
 ```
 
 https://www.nerdfonts.com/

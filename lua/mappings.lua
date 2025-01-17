@@ -7,8 +7,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-local builtin = require "telescope.builtin"
-map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
 
 vim.keymap.set("n", "<Leader>dv", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Debugger view" })
 vim.keymap.set(
