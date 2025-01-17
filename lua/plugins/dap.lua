@@ -24,10 +24,12 @@ return {
         dapui.close()
       end
 
-      vim.fn.sign_define(
-        "DapBreakpoint",
-        { text = "⏺", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-      )
+      local sign = vim.fn.sign_define
+      sign("DapBreakpoint", { text = "", texthl = "ErrorMsg", linehl = "ErrorMsg" })
+      sign("DapLogPoint", { text = "", texthl = "ErrorMsg", linehl = "ErrorMsg" })
+      sign("DapBreakpointCondition", { text = "", texthl = "ErrorMsg", linehl = "ErrorMsg" })
+      sign("DapBreakpointRejected", { text = "", texthl = "ErrorMsg", linehl = "ErrorMsg" })
+      sign("DapStopped", { text = "󰜴", texthl = "", linehl = "" })
     end,
   },
   -- {
