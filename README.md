@@ -1,5 +1,10 @@
-# Noevim Install
+# Neovim Install
 
+```sh
+brew install neovim
+brew install font-lekton-nerd-font
+
+```
 
 > note: 实用技巧 https://xu3352.github.io/linux/2018/10/16/practical-vim-skills
 
