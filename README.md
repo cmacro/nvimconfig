@@ -4,6 +4,19 @@
 brew install neovim
 brew install font-lekton-nerd-font
 
+# Mason 
+      rust-analyzer
+      codelldb
+      delve
+      css-lsp
+      gopls
+      html-lsp
+      golines
+      prettier
+      lua-language-server
+      slint-lsp
+      stylua
+
 ```
 
 > note: 实用技巧 https://xu3352.github.io/linux/2018/10/16/practical-vim-skills
