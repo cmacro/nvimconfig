@@ -45,9 +45,9 @@ return {
       local dap_go = require "dap-go"
       dap_go.setup()
 
-      -- local dap = require "dap"
+      local dap = require "dap"
+      dap.configurations.go = dap.configurations.go or {}
       -- #109 fixed
-      -- dap.configurations.go = dap.configurations.go or {}
       -- table.insert(dap.configurations.go, 1, {
       --   type = "go",
       --   name = "Debug (Display print outputs)",
@@ -55,6 +55,15 @@ return {
       --   program = "${file}",
       --   outputMode = "remote", -- capturing the output of fmt.Print
       -- })
+
+      table.insert(dap.configurations.go, {
+        type = "go",
+        name = "Debug Package in bin",
+        request = "launch",
+        program = "${fileDirname}",
+        cmd = "${workspaceFolder}/bin",
+        outputMode = "remote", --  configs.delve.output_mode,
+      })
     end,
   },
 }
