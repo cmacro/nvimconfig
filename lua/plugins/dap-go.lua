@@ -61,7 +61,9 @@ return {
         name = "Debug Package in bin",
         request = "launch",
         program = "${fileDirname}",
-        cmd = "${workspaceFolder}/bin",
+        -- program = "${workspaceFolder}/bin/${workspaceFolderBasename}",
+        cmd = "${workspaceFolder}/bin/",
+        rootPath = "${workspaceFolder}/bin/",
         outputMode = "remote", --  configs.delve.output_mode,
       })
     end,
