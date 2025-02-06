@@ -1,5 +1,8 @@
 require "nvchad.mappings"
 
+-- remove default keys
+vim.keymap.del("n", "<Leader>n") -- toggle line number
+
 -- add yours here
 
 local map = vim.keymap.set
