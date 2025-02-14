@@ -47,3 +47,9 @@ map(
 
 map("n", "<Leader>dgt", "<cmd>lua require('dap-go').debug_test()<CR>", {desc="Debugger test function"})
 map("n", "<Leader>dgl", "<cmd>lua require('dap-go').debug_last_test()<CR>", {desc="Debugger last test function"})
+
+
+vim.keymap.set("n", "<leader>fJ", function()
+  vim.bo.filetype = "json"
+  vim.cmd("%!prettier --parser json")
+end, { desc = "Format JSON using Prettier" })
