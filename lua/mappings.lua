@@ -11,6 +11,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
+map("n", "<leader>td", "<cmd>Telescope diagnostics<CR>", { desc = "Telescope diagnostics window" })
+map("n", "<leader>tl", "<cmd>lua vim.diagnostic.setloclist()<CR>", { desc = "Telescope diagnostics list" })
 
 vim.keymap.set("n", "<Leader>dv", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Debugger view" })
 vim.keymap.set(
