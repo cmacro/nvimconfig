@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 -- remove default keys
 vim.keymap.del("n", "<Leader>n") -- toggle line number
+vim.keymap.del("n", "<Tab>") -- tab jump buffer  
+vim.keymap.del("n", "<S-Tab>") -- tab jump buffer  
 
 -- add yours here
 
